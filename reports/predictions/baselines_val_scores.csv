@@ -1,0 +1,3 @@
+approach,split,origins,MAE,RMSE
+last_value,val,4321,5.078,6.332
+seasonal_naive,val,4321,1.701,2.418

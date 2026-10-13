@@ -1,0 +1,4 @@
+approach,split,origins,first_origin,last_origin,horizon_h,MAE,RMSE,MAE_vs_seasonal_naive_%,RMSE_vs_seasonal_naive_%
+last_value,val,4321,2024-01-04 02:00:00+03:00,2024-11-25 23:00:00+03:00,24,5.078,6.332,198.4,161.8
+seasonal_naive,val,4321,2024-01-04 02:00:00+03:00,2024-11-25 23:00:00+03:00,24,1.701,2.418,0.0,0.0
+lstm,val,4321,2024-01-04 02:00:00+03:00,2024-11-25 23:00:00+03:00,24,1.456,2.019,-14.5,-16.5

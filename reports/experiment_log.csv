@@ -1,0 +1,4 @@
+model,inputs,window_h,horizon_h,settings,trained,MAE,RMSE,eval_dates
+last_value,temp at t,1,24,repeat y[t] for 24 h,False,5.078,6.332,2024-01-04 02:00 → 2024-11-25 23:00 (4321 origins)
+seasonal_naive,temp t-23 … t,24,24,y[t+h-24] (same hour yesterday),False,1.701,2.418,2024-01-04 02:00 → 2024-11-25 23:00 (4321 origins)
+lstm,"temp t-71 … t (scaled, train-only scaler)",72,24,"LSTM(32) + Dense(24) | Adam lr 0.001 | batch 64 | max 20 epochs, patience 3 | seed 42 | ran 20 epochs, best weights from epoch 18",True,1.456,2.019,2024-01-04 02:00 → 2024-11-25 23:00 (4321 origins)
