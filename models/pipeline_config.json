@@ -1,0 +1,89 @@
+{
+  "model_file": "madar_lstm.keras",
+  "selected_experiment": "lstm_hour_doy",
+  "station": "KING KHALED INTL",
+  "timezone": "Asia/Riyadh",
+  "target": "air_temperature",
+  "unit": "°C",
+  "cleaning": {
+    "fake_value_threshold": 99,
+    "readings": "minute 0 only, repeats averaged",
+    "gaps": "not filled"
+  },
+  "window_hours": 72,
+  "horizon_hours": 24,
+  "features": [
+    "temp",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "feature_definitions": {
+    "temp": "(air_temperature_C - mean_C) / std_C",
+    "hour_sin": "sin(2π · hour / 24)",
+    "hour_cos": "cos(2π · hour / 24)",
+    "doy_sin": "sin(2π · day_of_year / 365.25)",
+    "doy_cos": "cos(2π · day_of_year / 365.25)"
+  },
+  "scaler": {
+    "type": "standard",
+    "applies_to": "temp",
+    "mean_C": 27.677683064799282,
+    "std_C": 9.420359620020987,
+    "fit_on": "train",
+    "fit_range": [
+      "2021-01-01 03:00",
+      "2023-12-31 23:00"
+    ],
+    "n_values": 25633
+  },
+  "splits": {
+    "train": [
+      "2021-01-01 03:00",
+      "2023-12-31 23:00"
+    ],
+    "val": [
+      "2024-01-01 00:00",
+      "2024-11-28 23:00"
+    ],
+    "test": [
+      "2025-01-01 03:00",
+      "2025-08-25 00:00"
+    ]
+  },
+  "validation": {
+    "seasonal_naive": {
+      "MAE": 1.701,
+      "RMSE": 2.418,
+      "origins": 4321
+    },
+    "lstm_hour_doy": {
+      "MAE": 1.359,
+      "RMSE": 1.908,
+      "origins": 4321
+    }
+  },
+  "settings": {
+    "window": 72,
+    "horizon": 24,
+    "features": [
+      "temp",
+      "hour_sin",
+      "hour_cos",
+      "doy_sin",
+      "doy_cos"
+    ],
+    "units": 32,
+    "dropout": 0.0,
+    "lr": 0.001,
+    "batch_size": 64,
+    "max_epochs": 20,
+    "patience": 3,
+    "seed": 42,
+    "train_windows": 18246,
+    "epochs_run": 19,
+    "best_epoch": 16
+  },
+  "created": "2026-10-13T18:38:17"
+}
